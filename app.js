@@ -1,8 +1,7 @@
-let start = false;
 let win = false
 let player = []
-let randomOrder = []
-let computer;
+let sequence = []
+let rounds = 0
 
 
 const startBtn = document.querySelector('#start')
@@ -21,14 +20,17 @@ const startGame = () => {
     win = false;
     randomOrder = [];
     player = [];
-
     round.innerText = '1';
+    for (let i = 0; i < 20; i++) {
+        sequence.push(Math.floor(Math.random() * 4) + 1)
+    }
 }
 
-
+const nextRound = () => {
+    rounds++
+}
 
 const resetGame = () => {
-    start = false;
     win = false
     player = []
     randomOrder = []
