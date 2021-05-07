@@ -1,3 +1,26 @@
-/* top-left{
-    background-color: green;
-} */
+.circle{
+    width: 250px;
+    height: 250px;
+    display:inline-block;
+    align-content: center;
+}
+
+.top-left{
+    border-top-left-radius: 250px;
+    background-color: darkgreen;
+}
+
+.top-right{
+    border-top-right-radius: 250px;
+    background-color: darkred;
+}
+
+.bottom-left{
+    border-bottom-left-radius: 250px;
+    background-color:darkgoldenrod
+}
+
+.bottom-right{
+    border-bottom-right-radius: 250px;
+    background-color: darkblue;
+}
