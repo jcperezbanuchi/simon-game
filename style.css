@@ -23,4 +23,14 @@
 .bottom-right{
     border-bottom-right-radius: 250px;
     background-color: darkblue;
+    border-color: 2px solid black;
+}
+
+h1, div{
+    text-align: center;
+}
+
+button{
+    margin-bottom: 20px;
+    text-align: center;
 }
