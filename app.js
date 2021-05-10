@@ -58,10 +58,9 @@ const checkWinner = (currentLevel) => {
     } else {
         const h2 = document.createElement('h2');
         h2.innerText = 'Wrong! Game over, Reset the game'
-
-
+        resetGame();
     }
-    resetGame();
+
 }
 
 const originalColor = () => {
