@@ -11,6 +11,13 @@ body{
     display:inline-block;
     align-content: center;
     border:5px solid black;
+    box-shadow: 10px 10px 10px grey;
+
+}
+
+.circle:hover{
+    cursor: pointer;
+    box-shadow: 0 0px 0px 1px black;
 }
 
 #top-left{
