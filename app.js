@@ -13,13 +13,13 @@ let simon = [];
 let rounds = 0
 let color;
 let id;
-let totalRounds = 5
-
+let totalRounds = 20
+startBtn.disable = true
 
 
 //this was inspired by : https://codepen.io/zentech/pen/XaYygR?editors=0010
 const simonSequence = () => {
-    startBtn.disable = true
+
     rounds++
     roundCount.innerText = rounds
     randomNumber();
@@ -39,6 +39,8 @@ const simonSequence = () => {
         }
         else if (id === 3) {
             color = document.querySelector('.blue').getAttribute('class').split(' ')[1];
+        } else {
+            return
         }
         activateColor(id, color);
         i++;
@@ -64,15 +66,15 @@ const activateColor = (id, color) => {
 }
 
 const playerSequence = () => {
-    if (player.length === simon.length && player.length < totalRounds) {
+    if (checkSequence() === false) {
+        wrongColor()
+        simonSequence()
+
+    } else if (player.length === simon.length && player.length < totalRounds) {
         simonSequence()
         player = []
-    } else if (!checkSequence()) {
-        wrongColor()
-        resetGame()
-        simonSequence();
 
-    } else if (player.length === totalRounds) {
+    } if (player.length === totalRounds) {
         alert('You win the game!')
         resetGame()
     }
@@ -81,8 +83,10 @@ const playerSequence = () => {
 
 const checkSequence = () => {
     for (let i = 0; i < player.length; i++) {
-        if (player[i] !== simon[i]) {
-            return false
+        if (player.length === simon.length) {
+            if (player[i] !== simon[i]) {
+                return false
+            }
         }
     }
     return true
@@ -98,7 +102,7 @@ const resetGame = () => {
 
 const wrongColor = () => {
     alert('Wrong color! , try again')
-
+    resetGame()
 }
 
 
