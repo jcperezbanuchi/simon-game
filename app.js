@@ -1,158 +1,148 @@
-let win = false
-let player = []
-let simon = []
-let rounds = 0;
-let flashes = 0;
-let intervals;
-let onStreak = false
-let simonTurn = false;
-
-
-const allCircle = document.querySelectorAll('.circle')
 const startBtn = document.querySelector('#start')
-const green = document.querySelector('#top-left')
-const red = document.querySelector('#top-right')
-const yellow = document.querySelector('#bottom-left')
-const blue = document.querySelector('#bottom-right')
+const green = document.querySelector('.green')
+const red = document.querySelector('.red')
+const yellow = document.querySelector('.yellow')
+const blue = document.querySelector('.blue')
 const reset = document.querySelector('#reset');
 const roundCount = document.querySelector('#round')
 
+let player = [];
+let simon = [];
+let rounds = 0
+let color;
+let id;
+let totalRounds = 20
 
-
-//startgame function 
-const startGame = () => {
-    win = false;
-    simon = [];
-    player = [];
-    rounds = 1
+const simonSequence = () => {
+    rounds += 1
     roundCount.innerText = rounds
-    flashes = 0
-    onStreak = true
-    for (let i = 0; i < 20; i++) {
-        simon.push(Math.floor(Math.random() * 4) + 1)
-    }
-    simonTurn = true
-    inteverals = setInterval(nextRound, 1000)
+    randomNumber();
+    let i = 0;
+    let interval = setInterval(() => {
+        id = simon[i]
+        if (id === 0) {
+            color = document.querySelector('.green').getAttribute('class').split(' ')[1];
+        }
+        else if (id === 1) {
+            color = document.querySelector('.red').getAttribute('class').split(' ')[1];
+        }
+        else if (id === 2) {
+            color = document.querySelector('.yellow').getAttribute('class').split(' ')[1];
+        }
+        else if (id === 3) {
+            color = document.querySelector('.blue').getAttribute('class').split(' ')[1];
+        }
+        addColorSound(id, color);
+        i++;
+        if (simon.length === i) {
+            clearTimeout(interval)
+        }
+    }, 1000)
+    console.log
 }
 
-
-// this idea was taken from https://github.com/beaucarnes/simon-game/blob/master/js/index.js
-// next round function 
-const nextRound = () => {
-    win = false
-    if (flashes === rounds) {
-        clearInterval(intervals)
-        originalColor()
-        simonTurn = false
-    }
-    // allCircle.classList.add('disable');
-    if (simonTurn === true) {
-        originalColor()
-        setTimeout(() => {
-            if (simon[flashes] === 1) {
-                green.style.backgroundColor = "lightgreen";
-                startGame()
-            }
-            if (simon[flashes] === 2) {
-                red.style.backgroundColor = "red"
-                startGame()
-            }
-            if (simon[flashes] === 3) {
-                yellow.style.backgroundColor = "yellow";
-                startGame()
-            }
-            if (simon[flashes] === 4) {
-                blue.style.backgroundColor = "blue";
-                startGame()
-            }
-            flashes++;
-        }, 200);
-    }
-
-    checkSequence()
+const randomNumber = () => {
+    let random = Math.floor(Math.random() * 4)
+    simon.push(random)
 }
 
+const addColorSound = (id, color) => {
+    document.getElementById(id).classList.add(color + '-active')
+    setTimeout(() => {
+        document.getElementById(id).classList.remove(color + '-active')
+    }, 500);
+}
 
-//reset function
-const resetGame = () => {
-    win = false
+const playerSequence = () => {
     player = []
-    sequence = []
-    simonTurn = false
-    rounds = 0
-}
-
-// this idea was taken form https://github.com/sahaya-cyril/Simon-Game/blob/main/game.js"
-const checkSequence = () => {
-    if (simon[player.length - 1] !== player[player.length - 1]) {
-        onStreak = false
-    }
-    else if (simon.length === player.length) {
-        setTimeout(() => {
-            nextRound();
-        }, 1000);
-    } else if (player.length === 20 && onStreak == true) {
-        win = true
-        alert('You won!')
-        alert('Hit the reset button or refresh the page')
-        lightColors();
-
-    } else if (onStreak === false) {
-        const h2 = document.createElement('h2');
-        h2.innerText = 'Wrong! Game over, Reset the game'
-        setTimeout(() => {
-            originalColor()
-            roundCount.innerText = rounds
-        }, 800)
-
-    } else if (rounds === player.length && onStreak && !win) {
-        rounds++;
-        player = [];
-        simonTurn = true;
-        flash = 0;
+    if (player.length === simon.length && player.length < totalRounds) {
         roundCount.innerText = rounds;
-        intervalId = setInterval(nextRound, 800);
+        simonSequence()
+    } else if (checkSequence() === false) {
+        error()
+        simonSequence();
+    } else if (player.length === totalRounds) {
+        alert('You win the game!')
+        resetGame()
     }
 }
 
-const originalColor = () => {
-    green.style.backgroundColor = "darkgreen";
-    red.style.backgroundColor = "darkred";
-    yellow.style.backgroundColor = "goldenrod";
-    blue.style.backgroundColor = "darkblue";
+const checkSequence = () => {
+    for (let i = 0; i < player.length; i++) {
+        if (player[i] !== simon[i]) {
+            return false
+        }
+    }
+    return true
 }
 
+const resetGame = () => {
+    player = []
+    simon = []
+    rounds = 0
+    roundCount.innerHTML = rounds
 
+}
+
+const error = () => {
+    alert('you loose')
+    round = 0
+}
 
 
 //event listeners
-green.addEventListener('click', (event) => {
-    green.style.backgroundColor = "lightgreen";
-    player.push(1)
-    console.log(player)
 
+
+green.addEventListener('click', () => {
+    id = green.getAttribute('id')
+    color = green.getAttribute('class').split(' ')[1]
+    document.getElementById(id).classList.add(color + '-active')
+    setTimeout(() => {
+        document.getElementById(id).classList.remove(color + '-active')
+    }, 300);
+    player.push(id)
+    addColorSound(id, color);
+    playerSequence()
 })
 
-red.addEventListener('click', (event) => {
-    red.style.backgroundColor = "red";
-    player.push(2)
-    console.log(player)
+red.addEventListener('click', () => {
+    id = red.getAttribute('id')
+    color = red.getAttribute('class').split(' ')[1]
+    document.getElementById(id).classList.add(color + '-active')
+    setTimeout(() => {
+        document.getElementById(id).classList.remove(color + '-active')
+    }, 300);
+    player.push(id)
+    addColorSound(id, color)
+    playerSequence()
 })
 
-yellow.addEventListener('click', (event) => {
-    yellow.style.backgroundColor = "yellow";
-    player.push(3)
-    console.log(player)
+yellow.addEventListener('click', () => {
+    id = yellow.getAttribute('id')
+    color = yellow.getAttribute('class').split(' ')[1]
+    document.getElementById(id).classList.add(color + '-active')
+    setTimeout(() => {
+        document.getElementById(id).classList.remove(color + '-active')
+    }, 300);
+    player.push(id)
+    addColorSound(id, color)
+    playerSequence()
 })
 
-blue.addEventListener('click', (event) => {
-    blue.style.backgroundColor = "blue";
-    player.push(4)
-    console.log(player)
+blue.addEventListener('click', () => {
+    id = blue.getAttribute('id')
+    color = blue.getAttribute('class').split(' ')[1]
+    document.getElementById(id).classList.add(color + '-active')
+    setTimeout(() => {
+        document.getElementById(id).classList.remove(color + '-active')
+    }, 300);
+    player.push(id)
+    addColorSound(id, color)
+    playerSequence()
 })
 
 
-startBtn.addEventListener('click', startGame)
 
+
+startBtn.addEventListener('click', simonSequence)
 reset.addEventListener('click', resetGame)
-
