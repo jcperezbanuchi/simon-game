@@ -14,7 +14,7 @@ let rounds = 0
 let color;
 let id;
 let totalRounds = 20
-startBtn.disable = true
+
 
 
 //this was inspired by : https://codepen.io/zentech/pen/XaYygR?editors=0010
@@ -117,13 +117,9 @@ green.addEventListener('click', () => {
     setTimeout(() => {
         green.classList.remove(color + '-active')
     }, 300);
-
     player.push(parseInt(id))
-    activateColor(id, color);
-    console.log(player)
-
+    activateColor(id, color)
     playerSequence()
-
 })
 
 red.addEventListener('click', () => {
@@ -133,13 +129,9 @@ red.addEventListener('click', () => {
     setTimeout(() => {
         red.classList.remove(color + '-active')
     }, 300);
-
     player.push(parseInt(id))
     activateColor(id, color)
-    console.log(player)
-
     playerSequence()
-
 })
 
 yellow.addEventListener('click', () => {
@@ -149,14 +141,9 @@ yellow.addEventListener('click', () => {
     setTimeout(() => {
         yellow.classList.remove(color + '-active')
     }, 300);
-
     player.push(parseInt(id))
     activateColor(id, color)
-    console.log(player)
-
     playerSequence()
-
-
 })
 
 blue.addEventListener('click', () => {
@@ -166,12 +153,9 @@ blue.addEventListener('click', () => {
     setTimeout(() => {
         blue.classList.remove(color + '-active')
     }, 300);
-
     player.push(parseInt(id))
     activateColor(id, color)
-    console.log(player)
     playerSequence()
-
 })
 
 
