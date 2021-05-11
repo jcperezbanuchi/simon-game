@@ -20,26 +20,26 @@ body{
     box-shadow: 0 0px 0px 1px black;
 }
 
-#top-left{
+.green{
     border-top-left-radius: 250px;
     background-color: darkgreen;
     margin: -10px;
 }
 
-#top-right{
+.red{
     border-top-right-radius: 250px;
     background-color: darkred;
     margin: -10px
 }
 
-#bottom-left{
+.yellow{
     border-bottom-left-radius: 250px;
     background-color:darkgoldenrod;
     margin: -10px;
 
 }
 
-#bottom-right{
+.blue{
     border-bottom-right-radius: 250px;
     background-color: darkblue;
     margin: -10px
@@ -64,3 +64,23 @@ button{
 .disable {
     pointer-events: none;
 }
+
+
+.green-active {
+    background-color: lightgreen !important;
+  }
+
+  
+  .red-active {
+    background-color: red !important;
+  }
+
+  
+  .yellow-active {
+    background-color: yellow !important;
+  }
+
+  
+  .blue-active {
+    background-color: rgb(0, 102, 255) !important;
+  }
