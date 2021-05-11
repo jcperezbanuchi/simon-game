@@ -61,10 +61,6 @@ button{
     font-size: large;
 }
 
-.disable {
-    pointer-events: none;
-}
-
 
 .green-active {
     background-color: lightgreen !important;
