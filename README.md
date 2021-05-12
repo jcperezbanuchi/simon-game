@@ -14,7 +14,7 @@ Current functionalities include:
 - Repeat the sequence to increase the rounds by 1 when you have the right sequence.
 - Clickeable start and reset button 
 - Reacts to errors and reset the game.
-- Try to achieve a score of 20 to win.
+- Try to finish all 20 rounds to win.
 
 
 # Future improvements
