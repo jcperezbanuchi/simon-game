@@ -101,7 +101,7 @@ const resetGame = () => {
 }
 
 const wrongColor = () => {
-    alert('Wrong color! , try again')
+    alert('Wrong sequence!, start again')
     resetGame()
 }
 
@@ -161,3 +161,34 @@ blue.addEventListener('click', () => {
 
 startBtn.addEventListener('click', simonSequence)
 reset.addEventListener('click', resetGame)
+
+
+// modal 
+window.addEventListener('DOMContentLoaded', () => {
+    // setTimeout(openModal, 5000);
+
+    // Grabbing About the Game button
+    const openBtn = document.querySelector('#openModal');
+
+    // Grabbing modal element
+    const modal = document.querySelector('#modal');
+
+    // Grabbing close button
+    const closeBtn = document.querySelector('#close');
+
+    openBtn.addEventListener('click', openModal);
+
+    closeBtn.addEventListener('click', closeModal);
+
+
+});
+
+const modal = document.querySelector("#modal")
+
+const openModal = () => {
+    modal.style.display = 'block'
+}
+
+const closeModal = () => {
+    modal.style.display = 'none'
+}
