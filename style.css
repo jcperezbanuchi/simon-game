@@ -89,9 +89,10 @@ button{
 	background-color: #677996;
 	border: none;
 	outline: none;
-	border-radius: 3px;
+	border-radius: 40px;
 	color: white;
-	font-family: 'Arial';
+	font-family: 'Indie Flower', sans-serif;
+    font-size: 14px;
 	cursor: pointer;
 }
 
@@ -120,7 +121,7 @@ box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 /*This will give the box some depth.*/
 padding: 2%;
 line-height: 120%;
-font-family: Arial;
+
 }
 
 #modal-footer{
