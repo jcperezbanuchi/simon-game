@@ -15,7 +15,7 @@ body{
 
 }
 
-.circle:hover{
+.circle:hover, button{
     cursor: pointer;
     box-shadow: 0 0px 0px 1px black;
 }
@@ -82,7 +82,7 @@ button{
   }
 
 
-  /* modal */
+/* modal */
 
   .modal-buttons {
 	padding: 14px 18px;
@@ -104,7 +104,6 @@ button{
     height: 100%;
     width: 100%;
     z-index: 1;
-    /*This puts our modal in front of the body (which has a default z-index setting of `0`*/
     overflow: auto;
     /*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
     display: none;
@@ -116,7 +115,7 @@ height: 350px;
 width: 550px;
 border-radius: 2px;
 margin: 150px auto;
-/*This will set the margins for the top and the bottom to 150px (or larger). The right and left will automatically set themselves (and keep the box centered horizontally).*/
+
 box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 /*This will give the box some depth.*/
 padding: 2%;
@@ -126,4 +125,8 @@ line-height: 120%;
 
 #modal-footer{
 text-align: right;
+}
+
+.disable {
+    pointer-events: none;
 }

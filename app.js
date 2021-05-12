@@ -1,3 +1,4 @@
+// allbuttons in the game
 const startBtn = document.querySelector('#start')
 const green = document.querySelector('.green')
 const red = document.querySelector('.red')
@@ -14,6 +15,12 @@ let rounds = 0
 let color;
 let id;
 let totalRounds = 20
+let soundEfects = [
+    "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",//green
+    "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",//red
+    "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",//yellow
+    "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"//blue
+]
 
 
 
@@ -24,9 +31,7 @@ const simonSequence = () => {
     randomNumber();
     let i = 0;
     let interval = setInterval(() => {
-        allCircle.removeEventListener('click')
         id = simon[i]
-
         if (id === 0) {
             color = document.querySelector('.green').getAttribute('class').split(' ')[1];
         }
@@ -50,7 +55,6 @@ const simonSequence = () => {
 
 }
 
-
 const randomNumber = () => {
     let random = Math.floor(Math.random() * 4)
     simon.push(random)
@@ -59,6 +63,7 @@ const randomNumber = () => {
 
 const activateColor = (id, color) => {
     document.getElementById(id).classList.add(color + '-active')
+    playSound(id)
     setTimeout(() => {
         document.getElementById(id).classList.remove(color + '-active')
     }, 500);
@@ -82,14 +87,14 @@ const playerSequence = () => {
 
 const checkSequence = () => {
     for (let i = 0; i < player.length; i++) {
-        if (player.length === simon.length) {
-            if (player[i] !== simon[i]) {
-                return false
-            }
+        if (player[i] !== simon[i]) {
+            return false
         }
     }
     return true
 }
+
+
 
 const resetGame = () => {
     player = []
@@ -100,8 +105,15 @@ const resetGame = () => {
 }
 
 const wrongColor = () => {
-    alert('Wrong sequence!, start again')
-    resetGame()
+    let attempts = 0
+    let wrong = setInterval(() => {
+        attempts++
+        if (attempts === 3) {
+            clearInterval(wrong)
+            alert('You wrong color! start again')
+            resetGame()
+        }
+    }, 200)
 }
 
 
@@ -157,15 +169,8 @@ blue.addEventListener('click', () => {
     playerSequence()
 })
 
-
-startBtn.addEventListener('click', simonSequence)
-reset.addEventListener('click', resetGame)
-
-
 /////////// modal ///////////////////
 window.addEventListener('DOMContentLoaded', () => {
-    // setTimeout(openModal, 5000);
-
     // Grabbing About the Game button
     const openBtn = document.querySelector('#openModal');
 
@@ -179,10 +184,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', closeModal);
 
+    reset.addEventListener('click', resetGame)
+
+
+    startBtn.addEventListener('click', simonSequence)
 
 });
 
-const modal = document.querySelector("#modal")
+
 
 const openModal = () => {
     modal.style.display = 'block'
@@ -190,4 +199,12 @@ const openModal = () => {
 
 const closeModal = () => {
     modal.style.display = 'none'
+}
+
+
+// sound function 
+
+const playSound = (id) => {
+    let sound = new Audio(soundEfects[id])
+    sound.play()
 }
