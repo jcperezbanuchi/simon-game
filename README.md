@@ -1,5 +1,5 @@
 # Simon Game
-A browser-based version of the classic 80s hand-held memory game. Remember the sequence of lights and sounds, and see if you can achieve victory with a score of 20.
+A browser-based version of the classic 80s hand-held memory game. Remember the sequence of lights and sounds, and see if you can finish all 20 rounds to win!
 
 # Demo
 Demo app here: 
