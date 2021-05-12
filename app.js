@@ -26,6 +26,7 @@ let soundEfects = [
 
 //this was inspired by : https://codepen.io/zentech/pen/XaYygR?editors=0010
 const simonSequence = () => {
+    startBtn.setAttribute('disabled', 'disabled');
     rounds++
     roundCount.innerText = rounds
     randomNumber();
@@ -95,25 +96,29 @@ const checkSequence = () => {
 }
 
 
-
+//reset game function 
 const resetGame = () => {
     player = []
     simon = []
     rounds = 0
     roundCount.innerHTML = rounds
-
+    startBtn.removeAttribute('disabled', 'disabled')
 }
 
+//click the wrong color 
 const wrongColor = () => {
-    let attempts = 0
     let wrong = setInterval(() => {
-        attempts++
-        if (attempts === 3) {
-            clearInterval(wrong)
-            alert('You wrong color! start again')
-            resetGame()
-        }
-    }, 200)
+        alert('You click the wrong color! start again')
+        resetGame()
+        clearInterval(wrong)
+    }, 150)
+}
+
+// sound function 
+
+const playSound = (id) => {
+    let sound = new Audio(soundEfects[id])
+    sound.play()
 }
 
 
@@ -190,7 +195,9 @@ window.addEventListener('DOMContentLoaded', () => {
     startBtn.addEventListener('click', simonSequence)
 
 });
-
+const disableBtn = () => {
+    startBtn.disable = 'true'
+}
 
 
 const openModal = () => {
@@ -202,9 +209,3 @@ const closeModal = () => {
 }
 
 
-// sound function 
-
-const playSound = (id) => {
-    let sound = new Audio(soundEfects[id])
-    sound.play()
-}
