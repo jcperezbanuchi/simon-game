@@ -20,5 +20,5 @@ Current functionalities include:
 # Future improvements
 Planned features include:
 
-- decreasing delays for displaying the sequence at higher rounds
-- implement the game for mobile browsers with sounds
+- Decreasing delays for displaying the sequence at higher rounds
+- Be able to play it in mobile browsers including sounds

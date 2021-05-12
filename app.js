@@ -19,13 +19,12 @@ let totalRounds = 20
 
 //this was inspired by : https://codepen.io/zentech/pen/XaYygR?editors=0010
 const simonSequence = () => {
-
     rounds++
     roundCount.innerText = rounds
     randomNumber();
     let i = 0;
     let interval = setInterval(() => {
-        allCircle.classList.add('disable')
+        allCircle.removeEventListener('click')
         id = simon[i]
 
         if (id === 0) {
@@ -163,7 +162,7 @@ startBtn.addEventListener('click', simonSequence)
 reset.addEventListener('click', resetGame)
 
 
-// modal 
+/////////// modal ///////////////////
 window.addEventListener('DOMContentLoaded', () => {
     // setTimeout(openModal, 5000);
 
