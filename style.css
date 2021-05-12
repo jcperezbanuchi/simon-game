@@ -9,8 +9,8 @@ body{
 }
 
 .circle , #round{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     display:inline-block;
     align-content: center;
     border:5px solid black;
@@ -20,30 +20,30 @@ body{
 
 .circle:hover, button{
     cursor: pointer;
-    box-shadow: 0 0px 0px 1px black;
+    box-shadow: 0px 0px 0px 1px black;
 }
 
 .green{
-    border-top-left-radius: 250px;
+    border-top-left-radius: 200px;
     background-color: darkgreen;
     margin: -10px;
 }
 
 .red{
-    border-top-right-radius: 250px;
+    border-top-right-radius: 200px;
     background-color: darkred;
     margin: -10px
 }
 
 .yellow{
-    border-bottom-left-radius: 250px;
+    border-bottom-left-radius: 200px;
     background-color:darkgoldenrod;
     margin: -10px;
 
 }
 
 .blue{
-    border-bottom-right-radius: 250px;
+    border-bottom-right-radius: 200px;
     background-color: darkblue;
     margin: -10px
 }
@@ -64,23 +64,23 @@ button{
     font-size: large;
 }
 
-
+/* light the colors */
 .green-active {
     background-color: lightgreen !important;
   }
 
   
-  .red-active {
+.red-active {
     background-color: red !important;
   }
 
   
-  .yellow-active {
+.yellow-active {
     background-color: yellow !important;
   }
 
   
-  .blue-active {
+.blue-active {
     background-color: rgb(0, 102, 255) !important;
   }
 
