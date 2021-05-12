@@ -10,11 +10,11 @@ Built using HTML, CSS, vanilla JavaScript
 # Features
 Current functionalities include:
 
-- Computer generated sequences includes lights and sounds (desktop only for now).
+- Computer generates random sequences includes lights and sounds (desktop only for now).
 - Repeat the sequence to increase the rounds by 1 when you have the right sequence.
-- Try to achieve a score of 20 to win.
-- Reacts to errors and reset the game.
 - Clickeable start and reset button 
+- Reacts to errors and reset the game.
+- Try to achieve a score of 20 to win.
 
 
 # Future improvements
