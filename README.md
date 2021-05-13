@@ -2,7 +2,7 @@
 A browser-based version of the classic 80s hand-held memory game. Remember the sequence of lights and sounds, and see if you can finish all 20 rounds to win!
 
 # Demo
-Demo app here: 
+Demo app here: https://jcperezbanuchi.github.io/simon-game/
 
 # Technology
 Built using HTML, CSS, vanilla JavaScript 
