@@ -108,7 +108,7 @@ const resetGame = () => {
 //click the wrong color 
 const wrongColor = () => {
     let wrong = setInterval(() => {
-        alert('You click the wrong color! Start again')
+        alert('OPSS!!! You clicked the wrong color! Start again')
         resetGame()
         clearInterval(wrong)
     }, 150)
