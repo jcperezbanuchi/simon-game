@@ -24,7 +24,7 @@ let soundEfects = [
 
 
 
-//this was inspired by : https://codepen.io/zentech/pen/XaYygR?editors=0010
+//this was inspired by this code : https://codepen.io/zentech/pen/XaYygR?editors=0010
 //this function works after the start button is clicked and checks what random number is been added to simons array.
 const simonSequence = () => {
     startBtn.setAttribute('disabled', 'disabled');

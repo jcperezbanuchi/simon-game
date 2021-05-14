@@ -21,4 +21,4 @@ Current functionalities include:
 Planned features include:
 
 - Decreasing delays for displaying the sequence at higher rounds
-- Be able to play it in mobile browsers including sounds
+- Fix the sound in mobile devices

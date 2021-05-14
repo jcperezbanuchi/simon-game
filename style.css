@@ -20,7 +20,7 @@ body{
 
 .circle:hover, button{
     cursor: pointer;
-    box-shadow: 0px 0px 0px 1px black;
+    box-shadow: 0px 0px 0px 0px black;
 }
 
 .green{
@@ -140,6 +140,7 @@ text-align: right;
     .circle{
         width: 100px;
         height: 100px;
+        box-shadow: none;
     }
     .green{
         border-top-left-radius: 100px;
