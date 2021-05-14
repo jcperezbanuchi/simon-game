@@ -112,20 +112,18 @@ button{
 }
 
 #modal-textBox{
-background-color: white;
-height: 350px;
-width: 550px;
-border-radius: 2px;
-margin: 150px auto;
-
-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-padding: 2%;
-line-height: 120%;
-
+    background-color: white;
+    height: 350px;
+    width: 550px;
+    border-radius: 2px;
+    margin: 150px auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    line-height: 120%;  
 }
 
 #modal-footer{
-text-align: right;
+    text-align: right;
 }
 
 .disable {
