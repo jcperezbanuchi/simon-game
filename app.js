@@ -6,7 +6,7 @@ const yellow = document.querySelector('.yellow')
 const blue = document.querySelector('.blue')
 const reset = document.querySelector('#reset');
 const roundCount = document.querySelector('#round')
-const allCircle = document.querySelector('.circle')
+
 
 
 let player = [];
@@ -115,7 +115,6 @@ const wrongColor = () => {
 }
 
 // sound function 
-
 const playSound = (id) => {
     let sound = new Audio(soundEfects[id])
     sound.play()
